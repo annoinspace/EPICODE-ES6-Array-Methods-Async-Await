@@ -56,6 +56,7 @@ function addToCart() {
 function hideBook() {
   let btn = event.target
   let card = btn.parentElement.parentElement
+  let title = card.querySelector(".card-title").innerHTML
   container.removeChild(card)
 }
 
