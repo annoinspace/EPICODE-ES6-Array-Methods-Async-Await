@@ -1,4 +1,5 @@
 let container = document.getElementById("booksElement")
+let allBooks = []
 
 const getBooks = () => {
   fetch("https://striveschool-api.herokuapp.com/books")
@@ -10,11 +11,11 @@ const getBooks = () => {
       listOfBooks.forEach(visualiseBook)
     })
 }
-
 getBooks()
 
 function visualiseBook(book) {
   //   console.log(book)
+  allBooks.push(book)
   let card = document.createElement("div")
   card.classList.add("card", "col-3", "mb-3", "p-2")
   card.innerHTML = `<img src=${book.img} class="card-img-top" alt="...">
@@ -56,7 +57,7 @@ function addToCart() {
 function hideBook() {
   let btn = event.target
   let card = btn.parentElement.parentElement
-  let title = card.querySelector(".card-title").innerHTML
+  //   let title = card.querySelector(".card-title").innerHTML
   container.removeChild(card)
 }
 
@@ -64,3 +65,12 @@ function hideBook() {
 //   "#booksElement > div:nth-child(1) > div > div > button"
 // )
 // bookToCartBtn.addEventListener("click", addToCart)
+
+// const searchBooks = () => {
+//   let search = document.getElementById("searchType").value
+//   console.log(search)
+
+//   let query = search
+//   const re = RegExp(`.*${query.toLowerCase().split("").join(".*")}.*`)
+//   const matches = allBooks.filter((v) => v.toLowerCase().match(re))
+// }
