@@ -53,12 +53,11 @@ function addToCart() {
 
   let modalText = document.querySelector(".modal-body")
   let totalCartModalList = document.querySelector(".modal-total-cart ul")
-  modalText.innerHTML = `<h4>${title} - Added to Cart. </h4>  `
+  modalText.innerHTML = `<h5>${title}</h5>  `
   totalCartModalList.innerHTML += `<li>${title}</li>`
 
   cartElement = cartArray.length
   document.getElementById("cartItems").value = cartElement
-  //   console.log("clicked")
 }
 
 function hideBook() {
@@ -67,6 +66,10 @@ function hideBook() {
   //   let title = card.querySelector(".card-title").innerHTML
   container.removeChild(card)
 }
+
+let cartIcon = document.getElementById("cart-icon")
+
+function showCart() {}
 
 // let bookToCartBtn = document.querySelector(
 //   "#booksElement > div:nth-child(1) > div > div > button"

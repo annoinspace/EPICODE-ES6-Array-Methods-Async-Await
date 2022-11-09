@@ -17,3 +17,11 @@
 .red-border {
   border: 3px solid red;
 }
+
+.cart {
+  float: right;
+}
+
+.gray-border {
+  border: 1px solid gray;
+}
