@@ -26,6 +26,7 @@ function visualiseBook(book) {
      <span>Price: £${book.price}</span>
      </div>
      <p class="card-text "> ID:${book.asin}</p>
+     <button class="btn btn-dark mb-2 skip-btn" onclick="hideBook()">Skip</button>
     </div>
 `
   container.appendChild(card)
@@ -50,6 +51,12 @@ function addToCart() {
   cartElement = cartArray.length
   document.getElementById("cartItems").value = cartElement
   //   console.log("clicked")
+}
+
+function hideBook() {
+  let btn = event.target
+  let card = btn.parentElement.parentElement
+  container.removeChild(card)
 }
 
 // let bookToCartBtn = document.querySelector(
