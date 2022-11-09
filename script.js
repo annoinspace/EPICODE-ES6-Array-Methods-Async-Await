@@ -1,5 +1,4 @@
 let container = document.getElementById("booksElement")
-let cartElement = document.getElementById("cart-text")
 
 const getBooks = () => {
   fetch("https://striveschool-api.herokuapp.com/books")
@@ -33,7 +32,7 @@ function visualiseBook(book) {
 }
 
 let bookToCartBtn = document.querySelectorAll(".cart-btn")
-
+let cartElement = parseInt(document.getElementById("cartItems").value)
 let cartArray = []
 
 function addToCart() {
@@ -47,7 +46,9 @@ function addToCart() {
   console.log(title)
   alert(title + " - Added to Cart. ")
   cartArray.push(title)
-  console.log(cartArray)
+
+  cartElement = cartArray.length
+  document.getElementById("cartItems").value = cartElement
   //   console.log("clicked")
 }
 
