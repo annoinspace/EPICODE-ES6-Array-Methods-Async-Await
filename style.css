@@ -1,0 +1,19 @@
+#cart-icon {
+  height: 100px;
+  width: 100px;
+}
+
+.bi-cart {
+  font-size: 25px;
+}
+
+#cart-text {
+  height: 100px;
+  width: 100px;
+  padding: 10px 25px 10px 25px;
+  border: 1px solid gray;
+}
+
+.red-border {
+  border: 3px solid red;
+}
