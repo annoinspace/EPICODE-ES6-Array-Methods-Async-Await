@@ -23,7 +23,8 @@ function visualiseBook(book) {
      <h5 class="card-title">${book.title}</h5>
      <p class="card-text">Category: ${book.category}</p>
      <div class="flex">
-     <button class="btn btn-primary mb-2 cart-btn" onclick="addToCart()">Add To Cart</button>
+     <button class="btn btn-primary mb-2 cart-btn" onclick="addToCart()" 
+          data-toggle="modal" data-target="#addToCartModal">Add To Cart</button>
      <span>Price: £${book.price}</span>
      </div>
      <p class="card-text "> ID:${book.asin}</p>
@@ -34,6 +35,7 @@ function visualiseBook(book) {
 }
 
 let bookToCartBtn = document.querySelectorAll(".cart-btn")
+document.getElementById("cartItems").disabled = true
 let cartElement = parseInt(document.getElementById("cartItems").value)
 let cartArray = []
 
@@ -46,8 +48,13 @@ function addToCart() {
   bookCard.classList.add("red-border")
   let title = bookCard.querySelector(".card-title").innerHTML
   console.log(title)
-  alert(title + " - Added to Cart. ")
+
   cartArray.push(title)
+
+  let modalText = document.querySelector(".modal-body")
+  let totalCartModalList = document.querySelector(".modal-total-cart ul")
+  modalText.innerHTML = `<h4>${title} - Added to Cart. </h4>  `
+  totalCartModalList.innerHTML += `<li>${title}</li>`
 
   cartElement = cartArray.length
   document.getElementById("cartItems").value = cartElement
