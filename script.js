@@ -1,5 +1,11 @@
 let container = document.getElementById("booksElement")
 let allBooks = []
+let arrayOfBooks = []
+let filteredBooks = []
+
+window.onload = () => {
+  getBooks()
+}
 
 const getBooks = () => {
   fetch("https://striveschool-api.herokuapp.com/books")
@@ -9,9 +15,9 @@ const getBooks = () => {
     .then((listOfBooks) => {
       console.log(listOfBooks)
       listOfBooks.forEach(visualiseBook)
+      return (arrayOfBooks = [...books])
     })
 }
-getBooks()
 
 function visualiseBook(book) {
   //   console.log(book)
@@ -70,6 +76,55 @@ function hideBook() {
 let cartIcon = document.getElementById("cart-icon")
 
 function showCart() {}
+
+//figuring out the search bar function
+// document.addEventListener("DOMContentLoaded", function () {
+//   document.getElementById("searchType").addEventListener("input", performSearch)
+// })
+
+const filterbooks = () => {
+  let searchBar = document.getElementById("searchType")
+  const searchQuery = searchBar.value
+  const filteredBooks = arrayOfBooks.filter((books) =>
+    books.title.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+  visualiseBook(filteredBooks)
+}
+
+// function performSearch() {
+//   if (this.value.length > 3) {
+//     console.log("greater than 3")
+//     filteredBooks = allBooks.filter((book) =>
+//       book.title.toLowerCase().includes(query.toLowerCase())
+//     )
+//     visualiseBook(filteredBooks)
+//   } else {
+//     visualiseBook(allBooks)
+//   }
+// }
+
+// function search(query) {
+//   if (query.length > 3) {
+//     filteredBooks = allBooks.filter((book) =>
+//       book.title.toLowerCase().includes(query.toLowerCase())
+//     )
+//     visualiseBook(filteredBooks)
+//   } else {
+//     visualiseBook(allBooks)
+//   }
+// }
+
+// function search(query) {
+//   if (query.length > 3) {
+//     filteredBooks = allBooks.filter((book) =>
+//       book.title.toLowerCase().includes(query.toLowerCase())
+//     )
+
+//     displayBooks(filteredBooks)
+//   } else {
+//     displayBooks(outerBooks)
+//   }
+// }
 
 // let bookToCartBtn = document.querySelector(
 //   "#booksElement > div:nth-child(1) > div > div > button"
